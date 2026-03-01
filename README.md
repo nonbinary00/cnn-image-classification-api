@@ -1,22 +1,28 @@
-# cnn-image-classification-api
+# CNN Image Classification API (End-to-End ML Project)
 
-This is my early deep learning project where I trained a simple Convolutional
-Neural Network (CNN) on the FashionMNIST dataset and deployed it as a FastAPI
-inference service.
+This project is part of my learning journey into Machine Learning Engineering.  
+The goal was not only to train a CNN model, but to understand how a model can be
+prepared and served in a production-like environment.
 
-The goal of this project was to:
+I wanted to move beyond notebooks and experiment with deploying a trained model
+as an API.
 
-- Understand how CNNs work
-- Train a basic image classification model
-- Save and load trained PyTorch models
-- Build a simple inference API
-- Connect ML training with backend deployment
+## Project Goal
 
-## Model
+- Train a convolutional neural network on FashionMNIST
+- Understand training and evaluation workflows in PyTorch
+- Save and reload trained model weights
+- Build a simple inference API using FastAPI
+- Connect ML training with backend serving
 
-The model is a simple Convolutional Neural Network built with PyTorch.
+This project focuses on understanding the full ML pipeline: **data → training →
+evaluation → model saving → inference API**
 
-Architecture:
+## Model Overview
+
+The model is a simple CNN implemented in PyTorch.
+
+### Architecture
 
 - Conv2D
 - ReLU
@@ -26,47 +32,52 @@ Architecture:
 - MaxPooling
 - Fully Connected layers
 
-The model was trained on the FashionMNIST dataset (12 clothing classes). Based
-on the training curves, the model performs best around epochs 9–11.  
-Additional epochs did not significantly improve validation accuracy.
+The model was trained on the FashionMNIST dataset (10 classes of clothing).
+
+Final test accuracy: ~89–91%.
+
+From the training curves, the model achieves its best generalization performance
+around epochs 9–11.  
+Training beyond that does not significantly improve validation accuracy and may
+start to show mild overfitting.
+
+## Training Notebook
+
+Training was performed in: notebooks/01_training.ipynb
 
 The notebook includes:
 
-- Dataset loading
-- Data normalization
-- Training loop
-- Evaluation
-- Loss & accuracy plots
+- Data loading and normalization
+- Training and evaluation loops
+- Loss and accuracy tracking
+- Visualization of learning curves
+- Model checkpoint saving
 
-Model weights are saved to: artifacts/model.pt Class names are saved to:
-artifacts/classes.json
+## Inference API
 
-## Running the API
+The trained model is served through a FastAPI application.
 
-The API is built with FastAPI.
+This allowed me to understand how ML models can be:
 
-### Install dependencies
+- Loaded into memory
+- Used for real-time inference
+- Exposed via HTTP endpoints
 
-```bash
-pip install -r requirements.txt
+### Available Endpoints
 
-Run server  uvicorn app.main:app --reload
-
-Go to: http://127.0.0.1:8000/docs
-
-Prediction Endpoint
-POST /predict
-
-Upload an image (JPG / PNG / WEBP).
+- `GET /health` – service status check
+- `POST /predict` – image classification endpoint
 
 Example response:
 
+```json
 {
   "class": "Pullover",
   "confidence": 0.9975
 }
 
-🛠 Tech Stack
+
+ Tech Stack:
 
 Python
 PyTorch
@@ -75,11 +86,22 @@ FastAPI
 Uvicorn
 Matplotlib
 
-What I Learned:
+Project Structure:
 
-How convolutional layers extract features
-How training and evaluation loops work in PyTorch
-How to save and load models for inference
-How to build a simple ML inference API
-Basic debugging of backend + ML integration
+app/            # FastAPI inference service
+src/            # Model architecture
+notebooks/      # Training notebook
+artifacts/      # Saved model weights (not tracked in Git)
+assets/         # Training curves
+
+
+ What I Learned:
+
+Through this project I learned:
+How convolutional layers extract local spatial features
+How training and evaluation loops are structured in PyTorch
+How to monitor model performance and detect overfitting
+How to save and reload model weights for inference
+How to build and test a simple ML inference API
+Basic debugging of ML + backend integration
 ```
