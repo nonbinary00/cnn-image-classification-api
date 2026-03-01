@@ -95,13 +95,16 @@ artifacts/      # Saved model weights (not tracked in Git)
 assets/         # Training curves
 
 
- What I Learned:
+ ## What I Learned
 
 Through this project I learned:
-How convolutional layers extract local spatial features
-How training and evaluation loops are structured in PyTorch
-How to monitor model performance and detect overfitting
-How to save and reload model weights for inference
-How to build and test a simple ML inference API
-Basic debugging of ML + backend integration
+
+- How convolutional layers extract local spatial features
+- How training and evaluation loops are structured in PyTorch
+- How to monitor model performance and detect overfitting
+- How to save and reload model weights for inference
+- How to build and test a simple ML inference API
+- Basic debugging of ML + backend integration
+- How to expose a trained model via HTTP endpoints
+- How to handle file uploads and dependency-related runtime issues in an API service
 ```
