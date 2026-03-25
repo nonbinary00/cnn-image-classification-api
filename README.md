@@ -171,3 +171,9 @@ cloud storage or model registry).
 - Basic debugging of ML + backend integration
 - How to expose a trained model via HTTP endpoints
 - How to handle file uploads and runtime issues in an API
+
+## Future Improvements
+
+- Add Docker support
+- Improve model architecture
+- Add batch inference endpoint
