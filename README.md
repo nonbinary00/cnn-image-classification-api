@@ -1,8 +1,9 @@
 # CNN Image Classification API (End-to-End ML Project)
 
-This project is part of my learning journey into Machine Learning Engineering.  
-The goal was not only to train a CNN model, but to understand how a model can be
-prepared and served in a production-like environment.
+This project demonstrates an end-to-end Machine Learning workflow — from model
+training to serving predictions via an API. The goal was not only to train a CNN
+model, but to understand how a model can be prepared and served in a
+production-like environment.
 
 I wanted to move beyond notebooks and experiment with deploying a trained model
 as an API.
@@ -87,7 +88,15 @@ app/ # FastAPI inference service src/ # Model architecture notebooks/ # Training
 notebook artifacts/ # Saved model weights (not tracked in Git) assets/ #
 Training curves
 
-Through this project I learned:
+## Note on Artifacts
+
+The trained model and class mapping are included in the repository
+(`artifacts/`) so the API can be run immediately.
+
+In production systems, model artifacts are typically stored separately (e.g.,
+cloud storage or model registry).
+
+## Through this project I learned:
 
 How convolutional layers extract local spatial features
 
