@@ -85,7 +85,7 @@ Python PyTorch Torchvision FastAPI Uvicorn Matplotlib
 Project Structure:
 
 app/ # FastAPI inference service src/ # Model architecture notebooks/ # Training
-notebook artifacts/ # Saved model weights (not tracked in Git) assets/ #
+notebook artifacts/ # Saved model weights (included for demo purposes) assets/ #
 Training curves
 
 ## Note on Artifacts
