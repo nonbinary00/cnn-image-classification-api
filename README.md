@@ -116,24 +116,40 @@ venv\Scripts\activate     # Windows
 
 ### 3. Install dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
 ### 4. Run the API
 
+```bash
 uvicorn app.main:app --reload
+```
 
 The API will be available at: http://127.0.0.1:8000
 
 ### 5. Test endpoints
 
-Health check curl http://127.0.0.1:8000/health
+#### Health check
 
-Prediction You can test with an image file: curl -X POST
-"http://127.0.0.1:8000/predict" \
- -F "file=@image.png"
+```bash
+curl http://127.0.0.1:8000/health
+```
 
-Notes: The model is loaded once at application startup Supported formats: JPG,
-PNG, WEBP Make sure the artifacts/ folder is present (model weights + classes)
+#### Prediction
+
+You can test with an image file:
+
+```bash
+curl -X POST "http://127.0.0.1:8000/predict" \
+  -F "file=@image.png"
+```
+
+### Notes
+
+- The model is loaded once at application startup
+- Supported formats: JPG, PNG, WEBP
+- Make sure the artifacts/ folder is present (model weights + classes)
 
 You can also use Swagger UI: http://127.0.0.1:8000/docs
 
