@@ -89,9 +89,13 @@ Example response:
 
 ## Project Structure
 
-app/ # FastAPI inference service src/ # Model architecture notebooks/ # Training
-notebook artifacts/ # Saved model weights (included for demo purposes) assets/ #
-Training curves
+```
+app/ # FastAPI inference service
+src/ # Model architecture
+notebooks/ # Training notebook
+artifacts/ # Saved model weights (included for demo purposes)
+assets/ # Training curves
+```
 
 ## How to Run
 
