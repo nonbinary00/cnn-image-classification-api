@@ -78,15 +78,60 @@ Example response:
 }
 ```
 
-Tech Stack
+## Tech Stack
 
-Python PyTorch Torchvision FastAPI Uvicorn Matplotlib
+- Python
+- PyTorch
+- Torchvision
+- FastAPI
+- Uvicorn
+- Matplotlib
 
-Project Structure:
+## Project Structure
 
 app/ # FastAPI inference service src/ # Model architecture notebooks/ # Training
 notebook artifacts/ # Saved model weights (included for demo purposes) assets/ #
 Training curves
+
+## How to Run
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/nonbinary00/cnn-image-classification-api.git
+cd cnn-image-classification-api
+```
+
+### 2. Create virtual environment (optional but recommended)
+
+```bash
+python -m venv venv
+source venv/bin/activate  # macOS / Linux
+venv\Scripts\activate     # Windows
+```
+
+### 3. Install dependencies
+
+pip install -r requirements.txt
+
+### 4. Run the API
+
+uvicorn app.main:app --reload
+
+The API will be available at: http://127.0.0.1:8000
+
+### 5. Test endpoints
+
+Health check curl http://127.0.0.1:8000/health
+
+Prediction You can test with an image file: curl -X POST
+"http://127.0.0.1:8000/predict" \
+ -F "file=@image.png"
+
+Notes: The model is loaded once at application startup Supported formats: JPG,
+PNG, WEBP Make sure the artifacts/ folder is present (model weights + classes)
+
+You can also use Swagger UI: http://127.0.0.1:8000/docs
 
 ## Note on Artifacts
 
@@ -98,19 +143,11 @@ cloud storage or model registry).
 
 ## Through this project I learned:
 
-How convolutional layers extract local spatial features
-
-How training and evaluation loops are structured in PyTorch
-
-How to monitor model performance and detect overfitting
-
-How to save and reload model weights for inference
-
-How to build and test a simple ML inference API
-
-Basic debugging of ML + backend integration
-
-How to expose a trained model via HTTP endpoints
-
-How to handle file uploads and dependency-related runtime issues in an API
-service
+- How convolutional layers extract local spatial features
+- How training and evaluation loops are structured in PyTorch
+- How to monitor model performance and detect overfitting
+- How to save and reload model weights for inference
+- How to build and test a simple ML inference API
+- Basic debugging of ML + backend integration
+- How to expose a trained model via HTTP endpoints
+- How to handle file uploads and runtime issues in an API
